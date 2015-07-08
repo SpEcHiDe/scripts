@@ -9,9 +9,9 @@ def similar(a, b):
     return SequenceMatcher(None, a, b).ratio()
 
 URL = "http://www.nitc.ac.in" # the URL which you want to scrap
-TG_CHAT_ID = 123456 ## give the chat id of the telegram user
+TG_CHAT_ID =  ## give the chat id of the telegram user
 ## Obtain using getupdates method
-TG_BOT_API_KEY = qw ## give the api key obtained from @BotFather
+TG_BOT_API_KEY =  ## give the api key obtained from @BotFather
 
 def get_data(url) :
     read_data = urllib2.urlopen(URL).read()
