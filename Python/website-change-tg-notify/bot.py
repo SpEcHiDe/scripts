@@ -1,10 +1,9 @@
 #!/usr/bin/python -tt
 
 import urllib, urllib2
-import time
-import re
-from BeautifulSoup import BeautifulSoup
+import xml
 
+from BeautifulSoup import BeautifulSoup
 from difflib import SequenceMatcher
 
 def similar(a, b):
@@ -24,8 +23,10 @@ def get_data(url) :
     # get the #news_css div element
     links = req_data.findAll('a')
     # get all latest news into a Python list
-    links = re.sub('<[^<]+?>', '', links)
-    return links
+    link = links[0].get('href')
+    data = remove_tags(str(links[0]))
+    ret_val = URL +"\nINFO : "+str(data)+"\nLINK : "+str(link)
+    return ret_val
 
 def post_data(message,chat_id,BOT_API_KEY) :
     tg_url = "https://api.telegram.org/bot"+BOT_API_KEY+"/sendMessage"
@@ -38,18 +39,19 @@ def post_data(message,chat_id,BOT_API_KEY) :
     return tg_msg_sent
 
 def main() :
-    array = get_data(URL)
-    file_obj = open("nitc_bot.log","r")
-    saved_content = file_obj.readline()
-    # check if the URL content is same
-    if similar(str(saved_content),str(array[0])) > 0.75 :
+    inform = get_data(URL)
+    fname = "nitc_bot.log"
+    file_obj = open(fname,"r")
+    saved_content = file_obj.readlines()
+    saved_content = ''.join(saved_content)
+    if str(saved_content) == str(inform) :
         print "url not changed. exitting . . ."
     else :
-        file_obj = open("nitc_bot.log","w")
+        file_obj = open(fname,"w")
         file_obj.seek(0,0)
-        file_obj.write(str(array[0]))
-        # send the Telegram message here
-	r = post_data(array[0],TG_CHAT_ID,TG_BOT_API_KEY)
+        file_obj.write(str(inform))
+        print inform
+        r = post_data(inform,TG_CHAT_ID,TG_BOT_API_KEY)
 
 if __name__ == "__main__" :
     main()
