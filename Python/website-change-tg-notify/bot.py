@@ -1,6 +1,8 @@
 #!/usr/bin/python -tt
 
-import urllib, urllib2, time
+import urllib, urllib2
+import time
+import re
 from BeautifulSoup import BeautifulSoup
 
 from difflib import SequenceMatcher
@@ -22,6 +24,7 @@ def get_data(url) :
     # get the #news_css div element
     links = req_data.findAll('a')
     # get all latest news into a Python list
+    links = re.sub('<[^<]+?>', '', links)
     return links
 
 def post_data(message,chat_id,BOT_API_KEY) :
