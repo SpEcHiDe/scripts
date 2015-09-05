@@ -17,7 +17,7 @@ def firewall_login(username,password,host) :
 	print tn.read_all()
 
 def usage() :
-	print "RTFM"
+	print "The syntax for this one hell of a code to work is python username password"
 
 def main() :
 	host = str("www.google.com")
@@ -31,7 +31,7 @@ def main() :
 			if isnetacs != 0 :
 				firewall_login(username,password,host)
 				count = count + 1
-			  print "Login "+str(count)+" time(s)"
+			  	print "Login "+str(count)+" time(s)"
 		except KeyboardInterrupt :
 			sys.exit(-1)
 
