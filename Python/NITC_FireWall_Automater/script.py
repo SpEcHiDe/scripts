@@ -14,10 +14,15 @@ def firewall_login(username,password,host) :
 		tn.write(password + "\n")
 	tn.write("logout\n")
 	tn.write("exit\n")
-	print tn.read_all()
+	#print tn.read_all()
 
 def usage() :
-	print "RTFM"
+	print "NITC Firewall Automater"
+        print "----"
+        print "Usage Instructions :- "
+        print "python",sys.argv[0],"<user name> <password>"
+	print "----"
+	print "License :- MIT"
 
 def main() :
 	host = str("www.google.com")
@@ -31,7 +36,7 @@ def main() :
 			if isnetacs != 0 :
 				firewall_login(username,password,host)
 				count = count + 1
-			  print "Login "+str(count)+" time(s)"
+			  	print "Login "+str(count)+" time(s)"
 		except KeyboardInterrupt :
 			sys.exit(-1)
 
