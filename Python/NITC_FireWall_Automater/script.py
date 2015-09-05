@@ -14,10 +14,15 @@ def firewall_login(username,password,host) :
 		tn.write(password + "\n")
 	tn.write("logout\n")
 	tn.write("exit\n")
-	print tn.read_all()
+	#print tn.read_all()
 
 def usage() :
-	print "The syntax for this one hell of a code to work is python username password"
+	print "NITC Firewall Automater"
+        print "----"
+        print "Usage Instructions :- "
+        print "python",sys.argv[0],"<user name> <password>"
+	print "----"
+	print "License :- MIT"
 
 def main() :
 	host = str("www.google.com")
