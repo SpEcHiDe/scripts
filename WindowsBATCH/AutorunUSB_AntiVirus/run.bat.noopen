@@ -1,0 +1,43 @@
+@echo off
+title :: SpEcHiDe ::
+
+:main
+set /p usbdr="Enter your USB drive letter (E) : "
+echo "Tasks done" > \\.\\%usbdr%:\log.txt
+
+:undo
+attrib -h -s -r -a \\.\\%usbdr%:\ /S /D >> \\.\\%usbdr%:\log.txt
+del \\.\\%usbdr%:\*.lnk /F /S >> \\.\\%usbdr%:\log.txt
+echo "Shortcuts claned " >> \\.\\%usbdr%:\log.txt
+
+if exist %usbdr%:\Autorun.inf del /f /q /a %usbdr%:\Autorun.inf
+mkdir \\.\\%usbdr%:\Autorun.inf\nul.SpEc'sLnK'
+attrib %usbdr%:\Autorun.inf +r +s +h
+echo "AUTORUN.INF folder created" >> \\.\\%usbdr%:\log.txt
+
+if exist %usbdr%:\Recycler\nul rmdir /s /q \\.\\%usbdr%:\Recycler
+if exist %usbdr%:\Recycler del /f /q /a %usbdr%:\Recycler
+echo SpEcHiDe > %usbdr%:\Recycler
+attrib %usbdr%:\Recycler +r +s +h
+echo "RECYCLER folder created">> \\.\\%usbdr%:\log.txt
+
+if exist %usbdr%:\$Recycle.Bin\nul rmdir /s /q \\.\\%usbdr%:\$Recycle.Bin
+if exist %usbdr%:\$Recycle.Bin del /f /q /a %usbdr%:\$Recycle.Bin
+echo SpEcHiDe > %usbdr%:\$Recycle.Bin
+attrib %usbdr%:\$Recycle.Bin +r +s +h
+echo "RecycleBin folder created">> \\.\\%usbdr%:\log.txt
+
+if exist %usbdr%:\Recycled\nul rmdir /s /q \\.\\%usbdr%:\Recycled
+if exist %usbdr%:\Recycled del /f /q /a %usbdr%:\Recycled
+echo SpEcHiDe > %usbdr%:\Recycled
+attrib %usbdr%:\Recycled +r +s +h
+echo "Recycled folder created" >> \\.\\%usbdr%:\log.txt
+
+if exist %usbdr%:\.Trasher\nul rmdir /s /q \\.\\%usbdr%:\.Trasher
+if exist %usbdr%:\.Trasher del /f /q /a %usbdr%:\.Trasher
+echo SpEcHiDe > %usbdr%:\.Trasher
+attrib %usbdr%:\.Trasher +r +s +h
+echo "Trasher file created" >> \\.\\%usbdr%:\log.txt
+
+REM check for exe files with malicious functions
+REM do an antivirus scan. google search on some portable av scanner.
