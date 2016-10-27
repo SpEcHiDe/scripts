@@ -52,7 +52,7 @@ def main_game() :
 		while 1 :
 			number1 = get_random_int(1,10)
 			number2 = get_random_int(1,10) #Number 2 should not be zero 
-			random_op_selection = get_random_int(1,3) # there are four operations
+			random_op_selection = get_random_int(1,4) # there are four operations
 			return_value = -1
 			if random_op_selection == 1 :
 				return_value = game_addition(number1,number2)
