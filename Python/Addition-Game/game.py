@@ -48,6 +48,8 @@ def game_modulo(number1,number2) :
         
 def main_game() :
 	try :
+		print "Hi, this is a very simple math game"
+		print "you need to solve some very elementry problems"
 		print "press Ctrl - C at any time to stop the game"
 		while 1 :
 			number1 = get_random_int(1,10)
