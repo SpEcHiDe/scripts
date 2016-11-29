@@ -37,14 +37,14 @@ def game_modulo(number1,number2) :
     else :
         return 0
 
-def game_division(number1,number2) :
-    r_answer = round(number1 / float(number2),2)
-    print "answer : ",r_answer
-    a_answer = raw_input(str(number1) + " / " + str(number2) + " (correct to two decimal places) = ")
-    if str(a_answer) == str(r_answer) :
-        return 1
-    else :
-        return 0
+#def game_division(number1,number2) :
+#    r_answer = round(number1 / float(number2),2)
+#    print "answer : ",r_answer
+#    a_answer = raw_input(str(number1) + " / " + str(number2) + " (correct to two decimal places) = ")
+#    if str(a_answer) == str(r_answer) :
+#        return 1
+#    else :
+#        return 0
         
 def main_game() :
 	try :
@@ -64,8 +64,6 @@ def main_game() :
 				return_value = game_multiplication(number1,number2)
 			elif random_op_selection == 4 :
 				return_value = game_modulo(number1,number2)
-			elif random_op_selection == 5:
-				return_value = game_division(number1,number2)
 			if return_value != 1 :
 				print "wrong answer"
 				break
