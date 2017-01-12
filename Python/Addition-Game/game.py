@@ -53,7 +53,7 @@ def main_game() :
 		while 1 :
 			number1 = get_random_int(1,10)
 			number2 = get_random_int(1,10) # Number 2 should not be zero
-			random_op_selection = get_random_int(1,4) # there are four operations
+			random_op_selection = get_random_int(1,5) # there are four operations
 			return_value = -1
 			if random_op_selection == 1 :
 				return_value = game_addition(number1, number2)
@@ -63,6 +63,8 @@ def main_game() :
 				return_value = game_multiplication(number1, number2)
 			elif random_op_selection == 4 :
 				return_value = game_modulo(number1, number2)
+			elif random_op_selection == 5 :
+				return_value = game_division(number1, number2)
 			if return_value != 1 :
 				print("wrong answer")
 				break
