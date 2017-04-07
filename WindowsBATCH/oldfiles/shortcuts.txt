@@ -1,0 +1,38 @@
+Shortcuts always save time, be it on the road or on your computer. 
+Here are a few windows xp shortcuts that will help you save your time. I hope you find them useful.
+
+Windows Explorer
+
+1. F2: Rename object – Forget right clicking a file or folder to find Rename option, Just select any file or folder with a single click and press F2 to rename selected object.
+
+2. F6 – Pressing F6 will let you move across various panes of Windows Explorer.
+
+3. Alt + Enter/ Alt+Double Click: Select any object in Windows Explorer and then use Alt+Enter or Alt+Double Click to open properties of the selected object.
+
+4. SHIFT+right click: Displays right context menu containing alternative commands, e.g. you can get an option to Open Command Window here if you use Shift+right click on any explorer object.
+
+Alternate right context menu
+
+5. SHIFT+double click: Runs the alternate default command (the second item on the right context menu). e.g. You can open Explorer View directly by clicking on any folder with Shift key pressed.
+
+6. BACKSPACE: Move to the parent folder. Similar to Up button in Windows Explorer.
+
+7. Ctrl + double click: Using double click on any folder with Ctrl key pressed will open that folder in a new explorer window.
+
+8. SHIFT+click+Close button: this one’s useful if you have used Ctrl+double click to open folders in new windows. Click on the close button of a open folder window with Shift key pressed. This will close all parent folders of that folder.
+
+9 SHIFT:To prevent a CD/DVD from running automatically press and hold Shift while inserting CD/DVD into your optical drive.
+
+10. F3: Pressing F3 while you are in windows explorer will open Windows Search to search for files or folders. This shortcut also works in Firefox which lets you search the opened web page.
+
+11. To copy a file from one folder to another, drag it to another folder with Ctrl key pressed.
+
+12. To create a shortcut to a file or folder, hold down Ctrl+Shift and drag it to desktop or another folder.
+
+13. ALT+SPACE: It’ll display the currently opened window’s System menu (System menu contains options to move, re-size, minimize, maximize, or close the window).
+
+Windows Management
+
+14. CTRL+ESC: Open Start menu, useful if your keyboard does not have a Windows key.
+
+15. Windows Key+M: Minimize all open windows
