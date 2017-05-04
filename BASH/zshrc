@@ -1,0 +1,5 @@
+# My ZSH custom functions go here, (neatly abstracted)!
+
+CURDIR=${HOME}"/scripts/BASH" # temporary hack
+
+source ${CURDIR}/ShellCustomizations/.balasankarc
