@@ -2,4 +2,26 @@
 
 CURDIR=${HOME}"/scripts/BASH" # temporary hack
 
+NPM_PACKAGES="${HOME}/.npm-packages"
+PATH="$NPM_PACKAGES/bin:$HOME/.local/bin:$HOME/.gem/ruby/2.4.0/bin:$PATH"
+# Unset manpath so we can inherit from /etc/manpath via the `manpath` co$
+unset MANPATH # delete if you already modified MANPATH elsewhere in your$
+export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+
+PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
+export GEM_HOME=$(ruby -e 'print Gem.user_dir')
+
+ANDROID_HOME="/home/shrimadhav/android/sdk"
+
+PATH="$ANDROID_HOME/platform-tools:$ANDROID_HOME/tools:$PATH"
+
+export VAGRANT_DEFAULT_PROVIDER=kvm
+
+export LC_TIME=en_IN
+
 source ${CURDIR}/ShellCustomizations/.balasankarc
+
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+
