@@ -1,9 +1,6 @@
 
 # copied from https://gitlab.com/balasankarc/dotfiles/blob/master/zsh/zshrc
 
-COMPLETION_WAITING_DOTS="true"
-HIST_STAMPS="mm/dd/yyyy"
-
 wificonnector () {
 	ssid=$1
 	password=$2
