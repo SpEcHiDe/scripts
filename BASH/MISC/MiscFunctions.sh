@@ -50,3 +50,8 @@ touchpad () {
 	fi
 	synclient TouchpadOff=$statusnew
 }
+
+DoScreenShotUpload(){
+	 curl -H "Content-Type: multipart/form-data" -F "doupload=1" -F "uploaded_file=@${1}" https://spechide.shrimadhavuk.me/media.php | xclip -selection c
+}
+
