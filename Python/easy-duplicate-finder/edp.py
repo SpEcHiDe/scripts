@@ -51,12 +51,12 @@ def cni_dict(foldername, dictionary):
     return dictionary
 
 def load_dict_from_file(filename):
-    with open(filename, 'r') as f :
+    with open(filename, 'r') as f:
         dictionary = json.load(f)
     return dictionary
 
 def save_dict_to_file(dictionary, filename):
-    with open(filename, 'w') as f :
+    with open(filename, 'w') as f:
         json.dump(dictionary, f)
 
 def usage():
@@ -71,7 +71,7 @@ if __name__ == '__main__':
         directoryname = str(sys.argv[1])
         filename = "EasyDuplicateFinderbySpEcHiDe.dictionary"
         print("creating, or loading the dictionary")
-        # TODO: load_dict_from_file 
+        # TODO: load_dict_from_file
         dictionary = {}
         # if len(sys.argv) == 3 :
         #     filename = sys.argv[2]

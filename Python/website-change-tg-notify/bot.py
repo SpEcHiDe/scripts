@@ -25,7 +25,7 @@ def get_data(url) :
     # get all latest news into a Python list
     link = links[0].get('href')
     data = remove_tags(str(links[0]))
-    ret_val = URL +"\nINFO : "+str(data)+"\nLINK : "+str(link)
+    ret_val = URL +"\nINFO : " +str(data) + "\nLINK : " +str(link)
     return ret_val
 
 def post_data(message,chat_id,BOT_API_KEY) :
@@ -45,7 +45,7 @@ def main() :
     saved_content = file_obj.readlines()
     saved_content = ''.join(saved_content)
     if str(saved_content) == str(inform) :
-        print "url not changed. exitting . . ."
+        print("url not changed. exitting . . .")
     else :
         file_obj = open(fname,"w")
         file_obj.seek(0,0)
