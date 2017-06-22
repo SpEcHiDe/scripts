@@ -1,0 +1,4 @@
+[submodule "MySystem"]
+    path = MySystem
+    url = https://gitlab.com/SpEcHiDe/dotfiles.git
+
