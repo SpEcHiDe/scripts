@@ -16,6 +16,8 @@ export VAGRANT_DEFAULT_PROVIDER=kvm
 
 export LC_TIME=en_IN
 
+EDITOR="vim"
+
 COMPLETION_WAITING_DOTS="true"
 HIST_STAMPS="mm/dd/yyyy"
 
