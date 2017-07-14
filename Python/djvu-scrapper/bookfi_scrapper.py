@@ -22,6 +22,39 @@ import re
 import sys
 import json
 
+def escape(a_string) :
+    escaped = a_string.translate(str.maketrans({
+                                          "]":  r" ",
+                                          "[":  r" ",
+                                          "\\": r"\\",
+                                          "^":  r" ",
+                                        #   "$":  r"\$",
+                                          "{": r" ",
+                                          "}": r" ",
+                                          "(": r" ",
+                                          ")": r" ",
+                                          '"': r"\"",
+                                        #   "-":  r"\-",
+                                          "'": r" "#,
+                                        #   ":": r"\:",
+                                        #   ".":  r"\."
+                                          }))
+    return escaped
+
+def rawTojson(data) :
+    lines = data.split("\n")
+    response = "{\"en_bookfi_net\":{"
+    i = 0
+    for entry in lines :
+        ery = entry.split(" | ")
+        title = escape(ery[0])
+        author = escape(ery[1])
+        url = ery[2].strip()
+        response += "\"" + str(i) + "\":{\"AUTHOR\":\"" + author + "\",\"TITLE\":\"" + title + "\",\"URL\":\"" + url + "\"},"
+        i = i + 1
+    response += "}}"
+    return response
+
 if len(sys.argv) != 2:
     print("invalid syntax")
 else:
