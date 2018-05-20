@@ -51,26 +51,31 @@ me = client.get_me()
 print(me.stringify())
 
 BASE_URL = "http://www.moviesoundclips.net"
-sound_id = input("Enter ID: ")
-url = BASE_URL + "/sound.php?id=" + str(sound_id)
-page = urllib.request.urlopen(url).read()
-print("Finished page retrieval")
-soup = BeautifulSoup(page, "html.parser")
-for anchor in soup.find_all("div", {"class": "content corner"}):
-    transcripts = anchor.find("div", {"itemprop": "transcript"})
-    if not transcripts:
-        continue
-    transcript = transcripts.get_text()
-    # print(transcript)
-    audio_files = anchor.find_all("source")
-    ogg_file = BASE_URL + audio_files[1].get("src")
-    # print(ogg_file)
-    local_file = DownLoadFile(ogg_file)
-    upload_response = client.send_file(UPLOAD_GRP_ENTITY, local_file, allow_cache=False, voice_note=True)
-    # print(upload_response.id)
-    client.send_message(UPLOAD_GRP_ENTITY, transcript, reply_to=upload_response.id)
-    # now remove the file
-    os.remove(local_file)
+while True:
+    sound_id = input("Enter ID: ")
+    url = BASE_URL + "/sound.php?id=" + str(sound_id)
+    page = urllib.request.urlopen(url).read()
+    print("Finished page retrieval")
+    soup = BeautifulSoup(page, "html.parser")
+    for anchor in soup.find_all("div", {"class": "content corner"}):
+        transcripts = anchor.find("div", {"itemprop": "transcript"})
+        if not transcripts:
+            continue
+        transcript = transcripts.get_text()
+        # print(transcript)
+        audio_files = anchor.find_all("source")
+        ogg_file = BASE_URL + audio_files[1].get("src")
+        # print(ogg_file)
+        local_file = DownLoadFile(ogg_file)
+        # convert using FFMpeg
+        shell_command = "ffmpeg -i " + local_file + " -map 0:a -codec:a libopus -b:a 100k -vbr on " + local_file + ".opus"
+        r = os.system(shell_command)
+        upload_response = client.send_file(UPLOAD_GRP_ENTITY, local_file + ".opus", allow_cache=False, voice_note=True)
+        # print(upload_response.id)
+        client.send_message(UPLOAD_GRP_ENTITY, transcript, reply_to=upload_response.id)
+        # now remove the file
+        os.remove(local_file)
+        os.remove(local_file + ".opus")
 
 # ends with Ctrl+C
 client.idle()
