@@ -7,7 +7,7 @@ import sys
 try:
     from pyrogram import Client
 except ImportError:
-    os.system("pip install --no-cache --upgrade pyrotgfork==2.1.19")
+    os.system("pip install --no-cache --upgrade pyrotgfork==2.2.11")
     from pyrogram import Client
 
 from pyrogram.errors import RPCError
@@ -29,9 +29,9 @@ async def m():
         if not mc.user:
             continue
         try:
-            await dhr.ban_chat_member(chat_id, mc.user.id)
+            await app.ban_chat_member(chat_id, mc.user.id)
             await asyncio.sleep(7)
-            await dhr.unban_chat_member(chat_id, mc.user.id)
+            await app.unban_chat_member(chat_id, mc.user.id)
             o = o + 1
         except RPCError as ex:
             print(f"Error Occurred: {mc.user} {ex._raw}")
